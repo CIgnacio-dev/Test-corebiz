@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Button, CardDeck } from 'react-bootstrap'
 import {listaCarrito} from '../../ListaCarrito.json'
-import Axios from 'axios';
 
 class Products extends React.Component {
 
@@ -26,17 +25,21 @@ class Products extends React.Component {
         });
        
     }
-    componentDidMount() {
-        Axios.get('https://5d8cdb5a443e3400143b4bea.mockapi.io/corebizchile/products')
-            .then(response => {
-                this.setState({ products: response.data })
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+    
+   
+    
     render() {
-       
+        
+        fetch('https://5d8cdb5a443e3400143b4bea.mockapi.io/corebizchile/products')
+        .then(function(response) {
+            return response.text();
+        })
+        .then(function(data) {
+            console.log('data = ', data);
+        })
+        .catch(function(err) {
+            console.error(err);
+        });
         
         return (
         

@@ -1,7 +1,7 @@
 import React from 'react';
 import { listaCarrito} from '../../ListaCarrito.json'
 import cart from '../Navbar/shopping-cart.png'
-import {Button, Badge, Popover, PopoverTitle, PopoverContent, Table, OverlayTrigger} from 'react-bootstrap'
+import {Button, Badge, Popover, PopoverTitle, PopoverContent, Table} from 'react-bootstrap'
 
 class Carro extends React.Component{
     constructor(){
@@ -11,14 +11,10 @@ class Carro extends React.Component{
             listaCarrito
         };
 
-    this.toggle=this.toggle.bind(this);
+    
 }
 
-toggle(){
-    this.setState(prevState =>({
-        popoverOpen: !prevState.popoverOpen
-    }));
-}
+
     render(){
         
           
@@ -28,7 +24,7 @@ toggle(){
                 return(
                     <tr>
                       <td>{( i+= 1 )}</td>
-                      <td>{ listaCarrito.product }</td>
+                      <td>{  }</td>
                       <td>{ listaCarrito.price }</td>
                     </tr>
                             );
@@ -41,7 +37,7 @@ toggle(){
                 <img src={cart} alt="cart" />
                     <Badge color="danger">{ arregloCarrito.length }</Badge>
                 </Button>
-                <Popover target="Popover1" placement="bottom" isOpen={ this.state.popoverOpen } toggle={ this.toggle }>
+                <Popover target="Popover1" placement="bottom" toggle={ this.toggle }>
                     <PopoverTitle>Listado de compras</PopoverTitle>
                     <PopoverContent>
                         <Table>
