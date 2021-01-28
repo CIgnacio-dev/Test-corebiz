@@ -5,23 +5,26 @@ import Axios from 'axios';
 
 class Products extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            products: []
-        }
+    constructor(props){
+        super();
+        this.state={
+    
+            listaCarrito
+        };
+
+      
+        this.agregarCarrito= this.agregarCarrito.bind(this);
     }
+
+   
 
     agregarCarrito(){
         
         listaCarrito.push({
-            "articulo": this.props.props.articulo,
-            "precio": this.props.props.precio
+            "product": this.props.product,
+            "price": this.props.price
         });
-        this.setState(prevState => ({
-            
-            stock: parseInt(prevState.stock) - 1
-        }))
+       
     }
     componentDidMount() {
         Axios.get('https://5d8cdb5a443e3400143b4bea.mockapi.io/corebizchile/products')
@@ -44,7 +47,7 @@ class Products extends React.Component {
                 <Card  className="container col-md-3" >
                     <Card.Img variant="top" src="https://corebiz-test.herokuapp.com/images/product-1.png" />
                     <Card.Body>
-                        <Card.Title>SAPATO FLOATER PRETO</Card.Title>
+                        <Card.Title></Card.Title>
                         <Button variant="dark" onClick={ this.agregarCarrito }>Comprar</Button>
                     </Card.Body>
 
