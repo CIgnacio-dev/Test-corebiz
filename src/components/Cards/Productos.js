@@ -31,15 +31,8 @@ class Products extends React.Component {
     render() {
         
         fetch('https://5d8cdb5a443e3400143b4bea.mockapi.io/corebizchile/products')
-        .then(function(response) {
-            return response.text();
-        })
-        .then(function(data) {
-            console.log('data = ', data);
-        })
-        .catch(function(err) {
-            console.error(err);
-        });
+      .then(response => response.json())
+      .then(json => console.log(json))
         
         return (
         
