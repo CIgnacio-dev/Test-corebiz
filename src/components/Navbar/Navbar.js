@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Form } from 'react-bootstrap';
 import logo from '../Navbar/logo.png'
 import account from '../Navbar/account.png'
-import cart from '../Navbar/shopping-cart.png'
+import Carro from './Carrito'
 
 
 class NavBar extends React.Component {
@@ -10,26 +10,26 @@ class NavBar extends React.Component {
         return(
         <nav>
             <>
-                <Navbar bg="light" >
-                    <div className="container">
+                <Navbar bg="light">
+                    <div className="container col-md-9">
                     <div className="logo" >
                         <img src={logo} alt=" " width="200"></img>
                     </div>
-                    <div className="navbar-nav">
-                        <Form inline>
-                            <input type="search" placeholder="O que está procurando?" width="100%" />
+                    <div className="navbar-nav col-md-8">
+                        <Form >
+                            <input style={{ width:'30rem' }} type="search" placeholder="O que está procurando?" />
                             <i className="fa fa-search"></i>
 
                         </Form>
 
-                        <div className="user">
+                        <div className="user col-md-6">
                             <img src={account} alt="Profile" />Minha Conta
                     </div>
-                        <div className="cart">
-                            <img src={cart} alt="Profile" />
-                        </div>
+                        
                     </div>
+                    <Carro/>
                     </div>
+                    
                 </Navbar>
             </>
         </nav>

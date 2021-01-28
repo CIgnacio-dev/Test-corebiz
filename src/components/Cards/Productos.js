@@ -13,9 +13,15 @@ class Products extends React.Component {
     }
 
     agregarCarrito(){
+        
         listaCarrito.push({
-            "title": this.props.products
-        })
+            "articulo": this.props.props.articulo,
+            "precio": this.props.props.precio
+        });
+        this.setState(prevState => ({
+            
+            stock: parseInt(prevState.stock) - 1
+        }))
     }
     componentDidMount() {
         Axios.get('https://5d8cdb5a443e3400143b4bea.mockapi.io/corebizchile/products')
@@ -27,41 +33,43 @@ class Products extends React.Component {
             })
     }
     render() {
-        const { products } = this.state
+       
         
         return (
         
             <CardDeck  className="container col-md-10" >
                 <h3>Mais Vendidos</h3>
-                <Card key={products.product} className="container col-md-3" >
+                
+   
+                <Card  className="container col-md-3" >
                     <Card.Img variant="top" src="https://corebiz-test.herokuapp.com/images/product-1.png" />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                    <Button onClick={this.agregarCarrito} variant="dark">Comprar</Button>
+                        <Card.Title>SAPATO FLOATER PRETO</Card.Title>
+                        <Button variant="dark" onClick={ this.agregarCarrito }>Comprar</Button>
                     </Card.Body>
 
                 </Card>
-                <Card key={products.product} className="container col-md-3">
+                <Card  className="container col-md-3">
                     <Card.Img variant="top" src="https://corebiz-test.herokuapp.com/images/product-2.png" />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Button variant="dark">Comprar</Button>
+                        <Card.Title>SANDALIA LINHO BROWN</Card.Title>
+                        <Button variant="dark" onClick={ this.agregarCarrito }>Comprar</Button>
                     </Card.Body>
 
                 </Card>
-                <Card key={products.product} className="container col-md-3">
+                <Card  className="container col-md-3">
                     <Card.Img variant="top" src="https://corebiz-test.herokuapp.com/images/product-3.png" />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Button variant="dark">Comprar</Button>
+                        <Card.Title>BOTA MUSTANG PRETO</Card.Title>
+                        <Button variant="dark" onClick={ this.agregarCarrito }>Comprar</Button>
                     </Card.Body>
 
                 </Card>
                 <Card className="container col-md-3">
                     <Card.Img variant="top" src="https://corebiz-test.herokuapp.com/images/product-4.png"/>
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Button variant="dark">Comprar</Button>
+                        <Card.Title>CINTO SEMICROMO PRETO 40MM</Card.Title>
+                        <Button variant="dark" onClick={ this.agregarCarrito }>Comprar</Button>
                     </Card.Body>
 
                 </Card>
