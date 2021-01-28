@@ -1,5 +1,4 @@
 import React from 'react';
-import "./vitrine.scss";
 import Produto from './Productos'
 
 
